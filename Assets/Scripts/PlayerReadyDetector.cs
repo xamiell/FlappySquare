@@ -30,11 +30,23 @@ public class PlayerReadyDetector : MonoBehaviour
             // Auto-Jump event of the player after press Space Button.
             // Some Accion TODO
         }
+
+        if ( GameManager.isPlayerDeath == true )
+        {
+            PlayWarmText();
+        }
     }
 
     private void StopWarmText()
     {
-        Animator.Destroy( warmText.GetComponent<Animator>() );
-        Destroy( warmText );
+        warmText.enabled = false;
+        warmText.GetComponent<Animator>().enabled = false;
+    }
+
+    private void PlayWarmText()
+    {
+        warmText.text = "OH, YOU DIE!";
+        warmText.GetComponent<Animator>().enabled = true;
+        warmText.enabled = true;
     }
 }
