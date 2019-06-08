@@ -8,6 +8,7 @@ public class PlayerReadyDetector : MonoBehaviour
     public static bool IsPlayerReady = default;
 
     [SerializeField] TextMeshProUGUI warmText;
+    [SerializeField] GameSettings gameSettings;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +46,7 @@ public class PlayerReadyDetector : MonoBehaviour
 
     private void PlayWarmText()
     {
-        warmText.text = "OH, YOU DIE!";
+        warmText.text = gameSettings.gameOverMessage;
         warmText.GetComponent<Animator>().enabled = true;
         warmText.enabled = true;
     }
