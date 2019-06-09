@@ -16,5 +16,6 @@ MonoBehaviour:
   backgroundSpeed: 0.02
   pointFactor: 5
   columnGeneratorRate: 317
+  timeBetewnTransitions: 3
   jumpForce: 12.5
   gravityForce: 5

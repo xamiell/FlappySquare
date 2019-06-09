@@ -8,6 +8,7 @@ public class PlayerReadyDetector : MonoBehaviour
     public static bool IsPlayerReady = default;
 
     [SerializeField] TextMeshProUGUI warmText;
+    [SerializeField] GameSettings gameSettings;
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +31,23 @@ public class PlayerReadyDetector : MonoBehaviour
             // Auto-Jump event of the player after press Space Button.
             // Some Accion TODO
         }
+
+        if ( GameManager.isPlayerDeath == true )
+        {
+            PlayWarmText();
+        }
     }
 
     private void StopWarmText()
     {
-        Animator.Destroy( warmText.GetComponent<Animator>() );
-        Destroy( warmText );
+        warmText.enabled = false;
+        warmText.GetComponent<Animator>().enabled = false;
+    }
+
+    private void PlayWarmText()
+    {
+        warmText.text = gameSettings.gameOverMessage;
+        warmText.GetComponent<Animator>().enabled = true;
+        warmText.enabled = true;
     }
 }
