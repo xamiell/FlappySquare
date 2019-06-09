@@ -6,25 +6,8 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] AudioClip clickButtonSound;
-    [SerializeField] AudioSource musicBackground;
-
-    private Camera _mainCamera;
-
-    private void Start()
-    {
-        _mainCamera = Camera.main;
-
-        if ( FindObjectsOfType( GetType() ).Length > 1)
-        {
-            Destroy( gameObject );
-        }
-        else
-        {
-            DontDestroyOnLoad( gameObject );
-            DontDestroyOnLoad( musicBackground );
-        }
-    }
-
+    [SerializeField] GameSettings gameSettings;
+    
     public void OnStartGame()
     {
         PlaySound();
@@ -33,7 +16,7 @@ public class SceneLoader : MonoBehaviour
 
     private void PlaySound()
     {
-        AudioSource.PlayClipAtPoint(clickButtonSound, _mainCamera.transform.position);
+        // TODO
     }
 
     public void OnOptionsGame()
@@ -50,5 +33,22 @@ public class SceneLoader : MonoBehaviour
     {
         PlaySound();
         Application.Quit();
+    }
+
+    public void OnMainMenu()
+    {
+        PlaySound();
+        SceneManager.LoadScene("Main_Menu");
+    }
+
+    public void GoToGameOverScreen()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public IEnumerator LoadGameOverScreen()
+    {
+        yield return new WaitForSeconds( gameSettings.timeBetewnTransitions );
+        GoToGameOverScreen();
     }
 }
