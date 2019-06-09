@@ -20,6 +20,11 @@ public class GameSettings : ScriptableObject
     [Range(100, 500)]
     public int columnGeneratorRate = 100;
 
+    [Range(1, 3)]
+    public int timeBetewnTransitions = 2;
+
+    public string gameOverMessage = "OH, YOU DIE!";
+
     [Space]
     [Header("Player Physics")]
     [Range(9.5f, 15f)]

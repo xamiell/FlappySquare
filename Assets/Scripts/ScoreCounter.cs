@@ -24,7 +24,7 @@ public class ScoreCounter : MonoBehaviour
 
     private void OnTriggerEnter2D( Collider2D collision )
     {
-        if ( collision.gameObject.tag.Equals( "Player" ) )
+        if ( collision.gameObject.tag.Equals( "Player" ) && GameManager.isPlayerDeath == false )
         {
             _pointSound.Play();
             GameManager.gameScore += gameSettings.pointFactor;

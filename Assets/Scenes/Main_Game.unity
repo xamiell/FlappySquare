@@ -733,6 +733,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScore: {fileID: 2104413929}
   gameSettings: {fileID: 11400000, guid: 83fb6d237c38e7a44b27de813d149da4, type: 2}
+  sceneLoader: {fileID: 8964937637645486685, guid: 224c20900415a7247ac2a668b066da49,
+    type: 3}
 --- !u!1 &1595107936
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warmText: {fileID: 1066594455}
+  gameSettings: {fileID: 11400000, guid: 83fb6d237c38e7a44b27de813d149da4, type: 2}
 --- !u!1 &1960179601
 GameObject:
   m_ObjectHideFlags: 0
